@@ -1,4 +1,7 @@
 # This creates the page for displaying data visualizations.
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 import streamlit as st
 import pandas as pd
