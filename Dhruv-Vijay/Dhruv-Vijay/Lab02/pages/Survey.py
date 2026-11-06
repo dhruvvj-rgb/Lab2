@@ -4,6 +4,10 @@
 import streamlit as st
 import pandas as pd
 import os # The 'os' module is used for file system operations (e.g. checking if a file exists).
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+csv_path = BASE_DIR / "data.csv"
 
 # PAGE CONFIGURATION
 st.set_page_config(
@@ -55,7 +59,7 @@ with st.form("survey_form"):
             "Category": [category_input.strip()],
             "Value": [numeric_value]
         })
-        new_row.to_csv("data.csv", mode="a", header=False, index=False)
+        new_row.to_csv(csv_path, mode="a", header=False, index=False)
         
         st.success("Your data has been submitted!")
         st.write(f"You entered: **Hobby:** {category_input}, **Weekly Minutes:** {value_input}")
@@ -67,9 +71,8 @@ st.divider() # Adds a horizontal line for visual separation.
 st.header("Current Data in CSV")
 
 # Check if the CSV file exists and is not empty before trying to read it.
-if os.path.exists('data.csv') and os.path.getsize('data.csv') > 0:
-    # Read the CSV file into a pandas DataFrame.
-    current_data_df = pd.read_csv('data.csv')
+if csv_path.exists() and csv_path.stat().st_size > 0:
+    current_data_df = pd.read_csv(csv_path)
     # Display the DataFrame as a table.
     st.dataframe(current_data_df)
 else:
