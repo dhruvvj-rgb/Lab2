@@ -1,0 +1,33 @@
+{
+    "chart_title": "Weekly Minutes Spent on Hobbies",
+    "data_points": [
+        {
+            "label": "Sketching",
+            "value": 45
+        },
+        {
+            "label": "Reading",
+            "value": 70
+        },
+        {
+            "label": "Baking",
+            "value": 35
+        },
+        {
+            "label": "Photography",
+            "value": 50
+        },
+        {
+            "label": "Gardening",
+            "value": 40
+        },
+        {
+            "label": "Puzzles",
+            "value": 30
+        },
+        {
+            "label": "Playing Guitar",
+            "value": 60
+        }
+    ]
+}
