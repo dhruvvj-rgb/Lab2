@@ -20,9 +20,8 @@ st.title("Data Visualizations 📈")
 
 # PART 1: GRAPHS FROM data.json
 # --- YOUR CODE GOES HERE ---
-infile = open("data.json")
-data = json.load(infile)
-infile.close()
+with open(BASE_DIR / "data.json", "r") as infile:
+    data = json.load(infile)
 
 hobby_data = pd.DataFrame(data["data_points"])
 
@@ -73,7 +72,7 @@ st.altair_chart(pie_chart, use_container_width=True)
 
 st.header("Survey Data Visualizations")
 
-csv_data = pd.read_csv("data.csv")
+csv_data = pd.read_csv(BASE_DIR / "data.csv")
 
 if csv_data.empty:
     st.warning("Submit some survey responses before viewing the CSV visualizations.")
